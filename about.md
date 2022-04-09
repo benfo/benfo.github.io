@@ -13,7 +13,7 @@ Ben is full-stack web application and software developer with extensive experien
 
 I write code
 
-Mostly .NET, but many others
+Mostly .NET, but many others...
 
 ### <i class="fa fa-fw fa-cogs"></i> Tinker
 
