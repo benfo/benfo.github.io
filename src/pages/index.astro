@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/site';
+---
+
+<Layout>
+  <Header />
+
+  <main class="space-y-20 py-6 sm:py-10">
+    <!-- Hero / Intro Section -->
+    <section class="animate-fade-in delay-100">
+      <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/70 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-400 mb-6">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>
+          {siteConfig.role}
+          {siteConfig.location ? ` · ${siteConfig.location}` : ''}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
+        {siteConfig.tagline}
+      </h1>
+
+      <p class="mt-5 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+        {siteConfig.about.intro}
+      </p>
+
+      <div class="mt-7 flex flex-wrap items-center gap-4 text-sm">
+        <a
+          href="#projects"
+          class="inline-flex items-center gap-2 rounded-lg bg-zinc-900 px-4 py-2 font-medium text-zinc-50 transition-all hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+        >
+          <span>View Projects</span>
+          <svg
+            class="h-3.5 w-3.5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+        <a
+          href="https://github.com/benfo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white/60 px-4 py-2 font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
+        >
+          <span>GitHub (@benfo)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Projects & Portfolio Section -->
+    <section id="projects" class="scroll-mt-16 animate-fade-in delay-200">
+      <div class="flex items-baseline justify-between">
+        <h2 class="font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          Selected Projects
+        </h2>
+        <a
+          href="https://github.com/benfo?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-xs text-zinc-400 hover:text-zinc-700 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
+        >
+          All repos &rarr;
+        </a>
+      </div>
+
+      <div class="mt-4 divide-y divide-zinc-200/50 dark:divide-zinc-800/50 space-y-2">
+        {siteConfig.projects.map((project) => (
+          <div class="pt-2 first:pt-0">
+            <ProjectCard project={project} />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- About & Bio Section -->
+    <section id="about" class="scroll-mt-16 animate-fade-in delay-300">
+      <h2 class="font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+        About
+      </h2>
+
+      <div class="mt-4 space-y-4 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+        {siteConfig.about.paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+
+      {
+        siteConfig.about.highlights && siteConfig.about.highlights.length > 0 && (
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {siteConfig.about.highlights.map((item) => (
+              <div class="rounded-xl border border-zinc-200/80 bg-white/50 p-4 dark:border-zinc-800/80 dark:bg-zinc-900/40">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                    {item.title}
+                  </h3>
+                  <span class="font-mono text-[11px] text-zinc-400 dark:text-zinc-500">
+                    {item.subtitle}
+                  </span>
+                </div>
+                <p class="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      {
+        siteConfig.about.focusAreas.length > 0 && (
+          <div class="mt-7">
+            <h3 class="text-xs font-medium text-zinc-500 dark:text-zinc-500 mb-3">
+              Core focus &amp; technologies
+            </h3>
+            <ul class="flex flex-wrap gap-2">
+              {siteConfig.about.focusAreas.map((area) => (
+                <li class="rounded-lg border border-zinc-200/80 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:text-zinc-300">
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="scroll-mt-16 animate-fade-in delay-300">
+      <h2 class="font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+        Connect
+      </h2>
+
+      <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+        Find me around the web or check out what I'm building on GitHub.
+      </p>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {siteConfig.socials.map((social) => (
+          <a
+            href={social.href}
+            target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+            rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+            class="group flex items-center justify-between rounded-xl border border-zinc-200/80 bg-white/50 px-4 py-3 text-sm transition-all hover:border-zinc-300 hover:bg-white dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700 dark:hover:bg-zinc-900"
+          >
+            <span class="font-medium text-zinc-900 dark:text-zinc-100">
+              {social.label}
+            </span>
+            <span class="inline-flex items-center gap-1 font-mono text-xs text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-500 dark:group-hover:text-zinc-300 transition-colors">
+              <span>{social.handle || social.label}</span>
+              <svg
+                class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
