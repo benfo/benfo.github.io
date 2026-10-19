@@ -99,6 +99,15 @@ export const siteConfig: SiteConfig = {
       featured: true,
     },
     {
+      title: "syscope",
+      description:
+        "A terminal task manager that explains what your system is doing: processes, performance, GPU, and ports, on Windows, Linux, and macOS.",
+      year: "2026",
+      tags: ["Go", "TUI", "Cross-Platform", "System Monitor"],
+      repo: "https://github.com/benfo/syscope",
+      featured: true,
+    },
+    {
       title: "Calendar for Command Palette",
       description:
         "A Microsoft PowerToys Command Palette extension that shows your daily schedule and lets you join Teams, Zoom, Meet, or Webex meetings in a single keystroke.",
