@@ -49,7 +49,7 @@ export const siteConfig: SiteConfig = {
     intro:
       "I'm a full-stack web application and software developer with extensive engineering and leadership experience. I love modernising, refactoring, and testing code while solving complex problems and making teams more productive.",
     paragraphs: [
-      "Across my day-to-day work and side projects, I gravitate toward fast, keyboard-first developer tools, desktop utilities, and clean web applications—mostly written in .NET/C#, Go, and TypeScript.",
+      "Across my day-to-day work and side projects, I gravitate toward fast, keyboard-first developer tools, desktop utilities, and clean web applications, mostly written in .NET/C#, Go, and TypeScript.",
       "Outside of software, I'm a tinkerer at heart, a husband and father, and a long-distance road and trail runner.",
     ],
     highlights: [
@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
         title: "Development",
         subtitle: "Writing & modernising code",
         description:
-          "Building full-stack applications and developer tooling—mostly in .NET, Go, and TypeScript—with a focus on clean architecture and maintainability.",
+          "Building full-stack applications and developer tooling in .NET, Go, and TypeScript, with a focus on clean architecture and maintainability.",
       },
       {
         title: "Tinkering",
@@ -69,7 +69,7 @@ export const siteConfig: SiteConfig = {
         title: "Running",
         subtitle: "Moving far on roads & trails",
         description:
-          "I run far—really far. Training for and racing epic ultra-distance road and trail running events.",
+          "I run far, really far. Training for and racing epic ultra-distance road and trail running events.",
       },
       {
         title: "Family",
